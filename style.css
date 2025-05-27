@@ -112,11 +112,17 @@ p.typing {
   font-weight: 400;
   color: white;
   margin-top: 20px;
-  overflow: hidden; /* Ensures text doesn't overflow while typing */
-  border-right: 3px solid #00bfff; /* Cursor effect */
-  white-space: nowrap; /* Prevents wrapping */
-  width: 0; /* Initial width to create typing effect */
-  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Typewriter animation */
+  opacity: 0;
+  transform: scale(0.5);
+  animation: scaleIn 0.8s ease forwards;
+}
+
+#internship.typing {
+  font-size: 2em;
+  margin-top: 10px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: scaleIn 0.8s ease forwards 0.4s;
 }
 
 /* Bounce animation for the name */
@@ -160,6 +166,17 @@ p.typing {
     border-color: #00bfff;
   }
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   
 
 .about-section {
@@ -191,13 +208,15 @@ p.typing {
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
-  flex-direction: column;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 
 .about-text {
   flex: 1;
-  max-width: 400px;
+  max-width: 600px;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -393,10 +412,15 @@ p.typing {
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
+  color: black;
   padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
 }
 
 .project-card:hover {
@@ -414,26 +438,40 @@ p.typing {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 10px;
-  border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
-  height: 60px; /* Default height */
-  overflow: hidden; /* Hide excess text */
-  opacity: 0; /* Hidden by default */
-  transform: translateY(100%); /* Move out of view */
+  border-radius: 0 0 8px 8px;
+  height: 60px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(100%);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .project-card:hover .project-description {
-  opacity: 1; /* Make visible */
-  transform: translateY(0); /* Slide into view */
-  height: auto; /* Expand to fit content */
-  padding: 3px; /* Add padding for content expansion */
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
+  padding: 3px;
 }
 
 .project-card:hover .project-title {
-  color: #00bfff; /* Highlight title on hover */
+  color: #00bfff;
+}
+
+.project-languages {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.project-languages p {
+  margin: 0;
+}
+
+.project-card:hover .project-languages {
+  color: #007fff;
 }
 
 /* Responsive Design */
@@ -659,4 +697,41 @@ body {
 
 .project-card:hover .project-languages {
     color: #007fff; 
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.github-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #007fff;
+}
+
+.project-card:hover .github-link {
+  color: #007fff;
 }
