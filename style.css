@@ -553,6 +553,33 @@ p.typing {
   gap: 20px;
 }
 
+.social-icon {
+  position: relative;
+}
+
+.social-icon::before {
+  content: "Click on me!";
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: #007fff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.social-icon::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #007fff;
+}
+
 .social-icon img {
   width: 60px; /* Set size for logos */
   height: 60px;
