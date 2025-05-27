@@ -250,10 +250,6 @@ p.typing {
     padding: 20px;
   }
 
-  .hero-content {
-    padding: 20px;
-  }
-
   .about-container {
     flex-direction: column;
     align-items: center;
@@ -389,20 +385,18 @@ p.typing {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); /* Three columns layout */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .project-card {
-  background: white;
-  color: black;
+  background: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-  height: 200px; /* Default height */
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
@@ -456,17 +450,14 @@ p.typing {
   background: #005f99;
   color: white;
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .contact-form {
-  max-width: 90%;
-  width: 90%;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  background: #007fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
 }
 
 .contact-form h1 {
@@ -483,11 +474,9 @@ p.typing {
 .contact-form input, 
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
 .contact-form input:focus, 
