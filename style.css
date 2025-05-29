@@ -762,3 +762,88 @@ body {
 .project-card:hover .github-link {
   color: #007fff;
 }
+
+.hero .social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero .social-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.hero .social-icon img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.hero .social-icon:hover img {
+  transform: scale(1.2);
+}
+
+.hero .social-icon::before {
+  content: "Click on me!";
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: #007fff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.hero .social-icon::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #007fff;
+}
+
+.linkedin-link {
+  display: inline-block;
+  margin-top: 30px;
+  position: relative;
+}
+
+.linkedin-icon {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.linkedin-link:hover .linkedin-icon {
+  transform: scale(1.2);
+}
+
+.linkedin-link::before {
+  content: "Look at my LinkedIn!";
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007fff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.linkedin-link::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #007fff;
+}
