@@ -31,8 +31,8 @@
     <h1 class="highlight">
       Hi, I'm <span id="name">Abdullah</span>
     </h1>
-    <p id="description" class="typing">A Third-Year Computer Science Student @University of Calgary!</p>
-    <p id="internship" class="typing">Currently Interning at Cenovus Energy! </p>
+    <p id="description" class="typing">A Third-Year Computer Science Student @University of Calgary</p>
+    <p id="internship" class="typing">Currently an Intern at Cenovus Energy! </p>
     <a href="https://www.linkedin.com/in/abdullahysf/" target="_blank" class="linkedin-link">
       <img src="images/linkedin.png" alt="LinkedIn" class="linkedin-icon" />
     </a>
@@ -258,8 +258,6 @@
 </section>
 
 
-
-
  <!-- Projects Section -->
 <section id="projects" class="projects-section">
     <h2>Personal Projects</h2>
@@ -329,28 +327,44 @@
   
   
 <!-- Contact Section -->
-<div class="contact-section">
-  <div class="contact-form">
-    <h1>Contact:</h1>
-    
-    <form action="https://formspree.io/f/xbljkweo" method="POST">
-    <!-- Name Field -->
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" placeholder="Your Name" required/>
-    
-    <!-- Email Field -->
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Your Email" required/>
-    
-    <!-- Message Field -->
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-    
-    <!-- Submit Button -->
-    <button type="submit">Send</button>
-    </form>
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Feel free to reach out to me for any opportunities or just to say hello!</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <img src="images/download-2.jpg" alt="Email" class="contact-icon">
+          <span>abdullah.yousaf@ucalgary.ca</span>
+        </div>
+        <div class="contact-item">
+          <img src="images/download-3.png" alt="Location" class="contact-icon">
+          <span>Calgary, Alberta</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/xbljkweo" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required/>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required/>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
   </div>
-</div>
+</section>
 
 
 
