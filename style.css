@@ -486,6 +486,7 @@ p.typing {
 .contact-section {
   padding: 80px 20px;
   background-color: #f8f9fa;
+  color: #333;
 }
 
 .contact-container {
@@ -524,11 +525,16 @@ p.typing {
   display: flex;
   align-items: center;
   gap: 15px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .contact-item span {
   color: #000;
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .contact-icon {
