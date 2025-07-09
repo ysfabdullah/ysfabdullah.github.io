@@ -1106,3 +1106,16 @@ body {
     padding: 15px;
   }
 }
+
+.about-section h2,
+.education-section h2,
+.skills-section h2,
+.experience-section h1,
+.projects-section h2,
+.contact-section h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
