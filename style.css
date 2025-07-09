@@ -125,6 +125,38 @@ p.typing {
   animation: scaleIn 0.8s ease forwards 0.4s;
 }
 
+#typing-text {
+  font-size: 2.5em;
+  font-weight: 400;
+  color: white;
+  margin-top: 20px;
+  opacity: 1;
+  transform: scale(1);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #typing-text {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  #typing-text {
+    font-size: 1em;
+  }
+}
+
+#typing-text::after {
+  content: '|';
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
 /* Bounce animation for the name */
 @keyframes bounce {
   0%, 100% {

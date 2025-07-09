@@ -32,8 +32,7 @@
     <h1 class="highlight">
       Hi, I'm <span id="name">Abdullah</span>
     </h1>
-    <p id="description" class="typing">A Third-Year Computer Science Student @University of Calgary</p>
-    <p id="internship" class="typing">Currently an Intern at Cenovus Energy! </p>
+    <p id="typing-text"></p>
     <a href="https://www.linkedin.com/in/abdullahysf/" target="_blank" class="linkedin-link">
       <img src="images/linkedin.png" alt="LinkedIn" class="linkedin-icon" />
     </a>
@@ -413,7 +412,44 @@
   </div>
 </section>
 
+<script>
+  const lines = [
+    "A Third-Year Computer Science Student @University of Calgary",
+    "Currently an Intern at Cenovus Energy!"
+  ];
+  const typingElement = document.getElementById("typing-text");
+  let lineIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 100; // ms per character (was 60)
+  let pauseBetweenLines = 1800; // ms pause at end of line (was 1200)
 
+  function type() {
+    const currentLine = lines[lineIndex];
+    if (!isDeleting) {
+      typingElement.textContent = currentLine.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentLine.length) {
+        isDeleting = true;
+        setTimeout(type, pauseBetweenLines);
+      } else {
+        setTimeout(type, typingSpeed);
+      }
+    } else {
+      typingElement.textContent = currentLine.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        lineIndex = (lineIndex + 1) % lines.length;
+        setTimeout(type, typingSpeed);
+      } else {
+        setTimeout(type, typingSpeed / 2);
+      }
+    }
+  }
+
+  type();
+</script>
 
 </body>
 </html>
