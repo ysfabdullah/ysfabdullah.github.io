@@ -1050,74 +1050,60 @@ body {
 }
 
 .education-card {
-  background: #007fff;
+  background: white;
   border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.education-card:hover {
-  transform: translateY(-5px);
-}
-
-.education-header {
-  margin-bottom: 25px;
-  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .education-header h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: #fff;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
 }
 
 .education-header h4 {
-  font-size: 1.3rem;
-  color: #e6f3ff;
-  margin-bottom: 10px;
+  color: #7f8c8d;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
 .education-date {
-  font-size: 1.1rem;
-  color: #b3d9ff;
+  color: #95a5a6;
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .education-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-.relevant-courses, .achievements {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
+.relevant-courses h5,
+.achievements h5 {
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
 }
 
-.relevant-courses h5, .achievements h5 {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.relevant-courses ul, .achievements ul {
+.relevant-courses ul,
+.achievements ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.relevant-courses li, .achievements li {
-  padding: 8px 0;
-  color: #e6f3ff;
-  font-size: 1.1rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.relevant-courses li:last-child, .achievements li:last-child {
-  border-bottom: none;
+.relevant-courses li,
+.achievements li {
+  padding: 0.3rem 0;
+  color: #34495e;
+  font-size: 0.9rem;
 }
 
 /* Responsive Design for Education Section */
@@ -1214,4 +1200,35 @@ body {
   .fact-text {
     font-size: 0.95rem;
   }
+}
+
+/* Timeline Connector */
+.timeline-connector {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, #ffd700, #ffd700);
+  margin: 20px auto;
+  position: relative;
+}
+
+.timeline-connector::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+}
+
+.timeline-connector::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
 }
