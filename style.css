@@ -1151,3 +1151,67 @@ body {
   text-align: center;
   letter-spacing: 1px;
 }
+
+/* Fun Facts Styling */
+.fun-facts {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.fun-fact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  transition: transform 0.2s ease;
+}
+
+.fun-fact-item:hover {
+  transform: translateX(8px);
+}
+
+.fun-fact-item:last-child {
+  margin-bottom: 0;
+}
+
+.emoji {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.fact-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+}
+
+.fact-text strong {
+  color: white;
+  font-weight: 600;
+}
+
+/* Responsive adjustments for fun facts */
+@media (max-width: 768px) {
+  .fun-facts {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .fun-fact-item {
+    margin-bottom: 0.8rem;
+  }
+  
+  .emoji {
+    font-size: 1.3rem;
+    margin-right: 0.8rem;
+    min-width: 1.8rem;
+  }
+  
+  .fact-text {
+    font-size: 0.95rem;
+  }
+}
