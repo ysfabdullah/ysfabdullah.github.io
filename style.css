@@ -1232,3 +1232,99 @@ body {
   background: #ffd700;
   border-radius: 50%;
 }
+
+/* Advanced Scroll Animations */
+.hero {
+  transform: translateZ(0);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero.scroll-animate {
+  transform: translateY(-20px) scale(1.02);
+}
+
+.about-section {
+  opacity: 0;
+  transform: translateY(60px) rotateX(10deg);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-section.scroll-animate {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+}
+
+.education-section {
+  opacity: 0;
+  transform: translateX(-80px) skewX(-5deg);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.education-section.scroll-animate {
+  opacity: 1;
+  transform: translateX(0) skewX(0deg);
+}
+
+.projects-section {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.projects-section.scroll-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.contact-section {
+  opacity: 0;
+  transform: translateY(50px) rotateY(-5deg);
+  transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contact-section.scroll-animate {
+  opacity: 1;
+  transform: translateY(0) rotateY(0deg);
+}
+
+/* Staggered child animations */
+.about-container > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-section.scroll-animate .about-container > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-section.scroll-animate .about-text {
+  transition-delay: 0.2s;
+}
+
+.about-section.scroll-animate .about-photo {
+  transition-delay: 0.4s;
+}
+
+.about-section.scroll-animate .fun-facts {
+  transition-delay: 0.6s;
+}
+
+/* Project cards individual animations */
+.project-card {
+  opacity: 0;
+  transform: translateY(40px) rotateX(15deg);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.projects-section.scroll-animate .project-card {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+}
+
+.projects-section.scroll-animate .project-card:nth-child(1) { transition-delay: 0.1s; }
+.projects-section.scroll-animate .project-card:nth-child(2) { transition-delay: 0.2s; }
+.projects-section.scroll-animate .project-card:nth-child(3) { transition-delay: 0.3s; }
+.projects-section.scroll-animate .project-card:nth-child(4) { transition-delay: 0.4s; }
+.projects-section.scroll-animate .project-card:nth-child(5) { transition-delay: 0.5s; }

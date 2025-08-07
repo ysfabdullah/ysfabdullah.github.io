@@ -9,6 +9,7 @@
   <!-- Hello -->
   
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
@@ -25,7 +26,7 @@
   </nav>
 
  <!-- Main Section -->
-<section class="hero">
+<section class="hero" data-aos="fade-up">
   <div class="hero-content">
     <img src="images/picture1.png" alt="Abdullah's Photo" class="hero-photo" style="display: block; margin: 0 auto 16px auto; width: 120px; height: 120px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.12);" />
     <h1 class="highlight">
@@ -40,7 +41,7 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="about-section">
+<section id="about" class="about-section" data-aos="fade-up">
   <div class="about-container">
     <div class="about-text">
       <h2>About Me</h2>
@@ -93,7 +94,7 @@
 </section>
 
 <!-- Education Section -->
-<section id="education" class="education-section">
+<section id="education" class="education-section" data-aos="fade-up">
   <h2>Education</h2>
   <div class="education-container">
     <div class="education-card">
@@ -357,7 +358,7 @@
 
 
  <!-- Projects Section -->
-<section id="projects" class="projects-section">
+<section id="projects" class="projects-section" data-aos="fade-up">
     <h2>Personal Projects</h2>
     <div class="project-grid">
       <div class="project-card">
@@ -440,7 +441,7 @@
   
   
 <!-- Contact Section -->
-<section id="contact" class="contact-section">
+<section id="contact" class="contact-section" data-aos="fade-up">
   <div class="contact-container">
     <div class="contact-info">
       <h2>Get in Touch</h2>
@@ -516,6 +517,40 @@
   }
 
   type();
+
+  // Advanced Scroll Animations
+  function initScrollAnimations() {
+    const sections = document.querySelectorAll('.hero, .about-section, .education-section, .projects-section, .contact-section');
+    
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-animate');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  // Initialize animations when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+  } else {
+    initScrollAnimations();
+  }
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
 </script>
 
 </body>
