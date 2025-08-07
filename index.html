@@ -74,14 +74,6 @@
             <span class="emoji">🧓</span>
             <span class="fact-text"><strong>Age:</strong> 2 decades young – get told I'm unc status </span>
           </div>
-          <div class="fun-fact-item">
-            <span class="emoji">❄️</span>
-            <span class="fact-text"><strong>Fun Fact:</strong> Never had a brain freeze before</span>
-          </div>
-          <div class="fun-fact-item">
-            <span class="emoji">💪</span>
-            <span class="fact-text"><strong>Slight flex:</strong> Secured an internship in my second year</span>
-          </div>
         </div>
 
 
@@ -489,8 +481,8 @@
   let lineIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  let typingSpeed = 100; // ms per character (was 60)
-  let pauseBetweenLines = 1800; // ms pause at end of line (was 1200)
+  let typingSpeed = 50; 
+  let pauseBetweenLines = 1800; 
 
   function type() {
     const currentLine = lines[lineIndex];
@@ -538,7 +530,7 @@
     sections.forEach(section => observer.observe(section));
   }
 
-  // Initialize animations when DOM is ready
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initScrollAnimations);
   } else {
