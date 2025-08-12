@@ -1328,3 +1328,82 @@ body {
 .projects-section.scroll-animate .project-card:nth-child(3) { transition-delay: 0.3s; }
 .projects-section.scroll-animate .project-card:nth-child(4) { transition-delay: 0.4s; }
 .projects-section.scroll-animate .project-card:nth-child(5) { transition-delay: 0.5s; }
+
+/* Resume Section */
+.resume-section {
+  background: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.resume-container h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.resume-container p {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #2c3e50;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+}
+
+.resume-download-btn:hover {
+  background: #34495e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+}
+
+.download-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+/* Footer */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #bdc3c7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-section {
+    padding: 3rem 1rem;
+  }
+  
+  .resume-container h2 {
+    font-size: 2rem;
+  }
+  
+  .resume-download-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
