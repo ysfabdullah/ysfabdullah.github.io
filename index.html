@@ -11,18 +11,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
+<body id="top">
   <!-- Navigation -->
 
 
-  <nav class="navbar">
-    <h1 class="logo">Abdullah Yousaf | CS Student  </h1>
-    <ul class="nav-links">
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Personal Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <nav class="navbar" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="logo" href="#top">Abdullah Yousaf <span class="logo-sep">•</span> CS Student</a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Personal Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
  <!-- Main Section -->
@@ -361,13 +370,26 @@
                   <img src="images/mind.jpg" alt="MIND@UOFC Logo" class="logo">
               </div>
               <h3>MIND@UOFC</h3>
-              <h5>Mechatronics Integration of Neural Dynamics </h5>
-              <h4>Engagement & Outreach Member</h4>
-              <p>October 2024 - Present</p>
-              <p>My role consists of planning and organizing club events, increasing member participation by 
-                20% through targeted outreach and promotional strategies..</p>
+              <p class="experience-meta">Mechatronics Integration of Neural Dynamics</p>
+              <p class="experience-date">October 2024 - March 2026</p>
+
+              <div class="experience-roles">
+                <div class="experience-role">
+                  <p class="role-title">Engagement &amp; Outreach Member</p>
+                  <ul class="role-bullets">
+                    <li>Planned and organized club events; increased member participation by 20% through targeted outreach and promotional strategies.</li>
+                  </ul>
+                </div>
+
+                <div class="experience-role">
+                  <p class="role-title">Marketing Coordinator</p>
+                  <ul class="role-bullets">
+                    <li>Created and scheduled marketing content to support events and keep members informed across club channels.</li>
+                  </ul>
+                </div>
+              </div>
           </div>
-       <!--   
+        
       </div>
       <div class="timeline-item">
           <div class="timeline-box">
@@ -375,22 +397,22 @@
                   <img src="images/download-4.png" alt="Nutrien Logo" class="logo">
               </div>
               <h3>Nutrien</h3>
-              <h5>Tax Transformation & Technology</h5>
-              <h4>Incoming Tax Transformation & Technology Intern</h4>
-              <p>May 2026 - December 2026</p>
+              <h4>Incoming Data Science Intern</h4>
+              <p class="experience-meta">Tax Transformation &amp; Technology · Calgary, AB</p>
+              <p class="experience-date">May 2026 - December 2026</p>
           </div>
       </div>
-    -->
+    
       <div class="timeline-item">
           <div class="timeline-box">
               <div class="logo-container">
                   <img src="images/download.png" alt="Cenovus Logo" class="logo">
               </div>
               <h3>Cenovus Energy</h3>
-              <h4>Turnaround Engineering Intern, Project Excellence Controls
-                <br>
-              </h4>
-              <h5>Data Science/Analytics </h5>
+              <h4>Software Developer Intern</h4>
+              <br>
+              <h5>Turnaround Engineering, Project Excellence Controls </h5>
+              <h5>Lloydmintster TAR Projects May 2026</h5>
               
               <p>May 2025 - December 2025</p>
               <p>Developed and maintained internal software applications, collaborated with cross-functional teams, 
@@ -572,6 +594,10 @@
           <span>abdullah.yousaf@ucalgary.ca</span>
         </div>
         <div class="contact-item">
+          <img src="images/download-2.jpg" alt="Phone" class="contact-icon">
+          <span><a href="tel:+15872154477">587-215-4477</a></span>
+        </div>
+        <div class="contact-item">
           <img src="images/download-3.png" alt="Location" class="contact-icon">
           <span>Calgary, Alberta</span>
         </div>
@@ -681,6 +707,27 @@
     document.addEventListener('DOMContentLoaded', initScrollAnimations);
   } else {
     initScrollAnimations();
+  }
+
+  // Navbar (mobile) toggle
+  const navbar = document.querySelector('.navbar');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  if (navbar && navToggle) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (navbar.classList.contains('open')) {
+          navbar.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   }
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

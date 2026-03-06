@@ -23,52 +23,128 @@
     text-align: center;
   }
   
-  /* Styling for navbar */
+/* Navbar */
 .navbar {
-  position: fixed;  /* Make it stay at the top */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Ensure it spans the entire width */
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000; /* Make sure the navbar stays above other content */
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(10, 18, 35, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
 
 .navbar .logo {
-  font-size: 24px;
-  margin-left: 20px;
-  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: 18px;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
+.navbar .logo .logo-sep {
+  opacity: 0.65;
+  font-weight: 700;
+}
 
 .navbar .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-right: 20px;
-}
-
-.navbar .nav-links li {
-  display: inline-block;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar .nav-links a {
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 20px;
-  padding: 10px 15px;
-  transition: background-color 0.3s;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .navbar .nav-links a:hover {
-  background-color: #555; 
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.navbar .nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.navbar .nav-toggle:focus-visible {
+  outline: 3px solid rgba(0, 191, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.navbar .nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+}
+
+.navbar .nav-toggle-bar + .nav-toggle-bar {
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .navbar .nav-toggle {
+    display: inline-flex;
+  }
+
+  .navbar .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 12px;
+    right: 12px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(10, 18, 35, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .navbar.open .nav-links {
+    display: flex;
+  }
+
+  .navbar .nav-links a {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 
@@ -390,10 +466,12 @@ p.typing {
   text-align: left;
   width: 100%; /* Adjust width to fit the grid */
   max-width: 350px; /* Limit the max width */
-  height: 330px; /* Set a fixed height for all boxes */
+  height: auto;
+  min-height: 330px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute content evenly */
+  justify-content: flex-start;
+  gap: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition for smooth effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -417,7 +495,49 @@ p.typing {
   font-size: 14px;
 }
 
-.timeline-item h3, .timeline-item h4 {
+.timeline-box p {
+  text-align: left;
+  margin: 6px 0;
+}
+
+.timeline-box ul {
+  text-align: left;
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.timeline-box li {
+  line-height: 1.35;
+}
+
+.timeline-box .experience-meta {
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.timeline-box .experience-date {
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.timeline-box .experience-roles {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 10px;
+  margin-top: 6px;
+}
+
+.timeline-box .experience-role + .experience-role {
+  border-top: 1px dashed rgba(255, 255, 255, 0.25);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.timeline-box .role-title {
+  font-weight: 800;
+  margin: 0;
+}
+
+.timeline-item h3, .timeline-item h4, .timeline-item h5 {
   margin: 0;
 }
 
@@ -569,6 +689,15 @@ p.typing {
   color: #000;
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+.contact-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
 }
 
 .contact-icon {
