@@ -389,11 +389,6 @@ animation: fadeInAbout 2s ease-out;
   max-width: 80%;
 }
 
-.timeline {
-  flex-direction: column;
-  gap: 20px;
-}
-
 .project-grid {
   grid-template-columns: 1fr; /* Single column for small screens */
 }
@@ -438,114 +433,203 @@ input, textarea, button {
 
 
 
-/* Experience Section */
+/* Experience Section — alternating timeline */
 .experience-section {
-padding: 100px 20px;
-background: #005f99;
+  padding: 100px 20px 110px;
+  background: linear-gradient(180deg, #045a8f 0%, #004f82 55%, #043b63 100%);
 }
 
-.timeline {
-display: grid;
-grid-template-columns: repeat(2, 1fr); /* 2 columns */
-gap: 30px; /* Space between items */
-padding-left: 50px;
+.experience-timeline {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 12px 8px;
 }
 
-.timeline-item {
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #ffffff;
+  border-radius: 999px;
+  z-index: 0;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
 }
 
-.timeline-box {
-background: #007fff;
-padding: 20px;
-border-radius: 8px;
-color: white;
-text-align: left;
-width: 100%; /* Adjust width to fit the grid */
-max-width: 350px; /* Limit the max width */
-height: auto;
-min-height: 330px;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-gap: 8px;
-transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition for smooth effect */
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.experience-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+  gap: 18px 12px;
+  align-items: flex-start;
+  margin-bottom: 2.35rem;
 }
 
-.timeline-box:hover {
-transform: translateY(-10px); /* Small upward movement on hover */
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Make the shadow more prominent on hover */
+.experience-card-slot {
+  display: flex;
+  min-width: 0;
 }
 
-.timeline-box .logo-container {
-text-align: center;
-margin-bottom: 15px;
+.experience-row--left .experience-card-slot:first-child {
+  justify-content: flex-end;
 }
 
-.timeline-box .logo {
-max-width: 80px; /* Set a max width for logos */
-margin-bottom: 10px;
+.experience-row--right .experience-card-slot:last-child {
+  justify-content: flex-start;
 }
 
-.timeline-item p {
-font-size: 14px;
+.experience-card-slot--empty {
+  pointer-events: none;
 }
 
-.timeline-box p {
-text-align: left;
-margin: 6px 0;
+.experience-spine-slot {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
 }
 
-.timeline-box ul {
-text-align: left;
-margin: 6px 0 0 18px;
-padding: 0;
+.experience-node {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow:
+    0 0 0 5px #045a8f,
+    0 12px 28px rgba(0, 0, 0, 0.28);
 }
 
-.timeline-box li {
-line-height: 1.35;
+.experience-node__logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
-.timeline-box .experience-meta {
-font-size: 0.95em;
-opacity: 0.9;
+.experience-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(0, 24, 52, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 1.28rem 1.4rem;
+  color: #ffffff;
+  text-align: left;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.timeline-box .experience-date {
-font-weight: 700;
-opacity: 0.95;
+.experience-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
 }
 
-.timeline-box .experience-roles {
-border-top: 1px solid rgba(255, 255, 255, 0.25);
-padding-top: 10px;
-margin-top: 6px;
+.experience-card__title {
+  margin: 0 0 0.4rem 0;
+  font-family: "Raleway", system-ui, -apple-system, sans-serif;
+  font-size: 1.14rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
 }
 
-.timeline-box .experience-role + .experience-role {
-border-top: 1px dashed rgba(255, 255, 255, 0.25);
-margin-top: 10px;
-padding-top: 10px;
+.experience-card__company {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.timeline-box .role-title {
-font-weight: 800;
-margin: 0;
+.experience-card__meta {
+  margin: 0 0 0.85rem 0;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
 }
 
-.timeline-item h3, .timeline-item h4, .timeline-item h5 {
-margin: 0;
+.experience-card__bullets {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.94);
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-.timeline {
-  grid-template-columns: 1fr; /* Stacks items in one column on smaller screens */
+.experience-card__bullets li + li {
+  margin-top: 0.4rem;
 }
+
+.experience-card__role-block + .experience-card__role-block {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 880px) {
+  .experience-timeline::before {
+    left: 28px;
+    transform: none;
+  }
+
+  .experience-row {
+    grid-template-columns: 1fr;
+    padding-left: 72px;
+    margin-bottom: 2rem;
+  }
+
+  .experience-card-slot--empty {
+    display: none;
+  }
+
+  .experience-spine-slot {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 56px;
+    padding-top: 0;
+    justify-content: center;
+  }
+
+  .experience-card-slot {
+    justify-content: flex-start !important;
+  }
+
+  .experience-card {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-timeline::before {
+    left: 22px;
+  }
+
+  .experience-row {
+    padding-left: 62px;
+  }
+
+  .experience-node {
+    width: 48px;
+    height: 48px;
+  }
+
+  .experience-node__logo {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 
@@ -890,8 +974,8 @@ font-size: 16px;
 .about-section p {
     font-size: 1em;
 }
-.timeline-box {
-    padding: 15px;
+.experience-card {
+    padding: 1rem 1.1rem;
 }
 .project-grid {
     grid-template-columns: 1fr;
