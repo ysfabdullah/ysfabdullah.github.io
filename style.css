@@ -1131,44 +1131,60 @@ border-top: 8px solid #007fff;
 }
 
 .linkedin-link {
-display: inline-block;
-margin-top: 30px;
-position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 0.72rem 1.35rem 0.72rem 1rem;
+  background: linear-gradient(145deg, #0a66c2 0%, #084d94 48%, #063d78 100%);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 10px 28px rgba(8, 77, 148, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.linkedin-link:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.07);
+  box-shadow:
+    0 16px 38px rgba(8, 77, 148, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.linkedin-link:active {
+  transform: translateY(-1px);
+}
+
+.linkedin-link:focus-visible {
+  outline: 3px solid rgba(0, 191, 255, 0.65);
+  outline-offset: 3px;
+}
+
+.linkedin-link__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .linkedin-icon {
-width: 60px;
-height: 60px;
-transition: transform 0.3s ease;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
 }
 
-.linkedin-link:hover .linkedin-icon {
-transform: scale(1.2);
-}
-
-.linkedin-link::before {
-content: "Check out my LinkedIn!";
-position: absolute;
-top: -45px;
-left: 50%;
-transform: translateX(-50%);
-background: #007fff;
-color: white;
-padding: 8px 15px;
-border-radius: 5px;
-font-size: 16px;
-white-space: nowrap;
-}
-
-.linkedin-link::after {
-content: "";
-position: absolute;
-top: -15px;
-left: 50%;
-transform: translateX(-50%);
-border-left: 8px solid transparent;
-border-right: 8px solid transparent;
-border-top: 8px solid #007fff;
+.linkedin-link__text::after {
+  content: " →";
+  font-weight: 600;
+  opacity: 0.85;
 }
 
 /* Skills Section */
